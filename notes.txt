@@ -1,0 +1,32 @@
+#types of components
+    1. function based
+            const App = () => {
+                return <div>
+                    <SearchBar />
+                </div>;
+            };
+    2. class based
+            class App2 extends React.Component{
+                render() {
+                    return <div>Hi from app2 !</div>
+                }
+            };
+
+#state in react
+    only in class based components
+    state is a plain JS object that is use to record the user events in react.
+    Each class based component that we define has its own state object.
+    Whenever a component's state is changed, the component immediately re-renders and also forces all of its children component to re-render.
+
+    To use state, we need to initialise it inside the constructor method of class
+
+    class App2 extends React.Component{
+        constructor(props){
+            super(props);       //calling method of a parent class
+
+            this.state = {};
+        }
+        render() {
+            return <div>Hi from app2 !</div>
+        }
+    };
