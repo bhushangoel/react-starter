@@ -11,7 +11,7 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);       //calling method of a parent class
 
-        this.state = {term: ''};
+        this.state = {term: 'abc'};
     }
 
     render() {
@@ -25,6 +25,7 @@ class SearchBar extends Component {
     }
 
     onInputChange(e) {
+        console.log('e.target.value: ', e.target.value)
         this.setState({term: e.target.value});
     }
 }

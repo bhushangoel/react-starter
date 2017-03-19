@@ -24,9 +24,31 @@
         constructor(props){
             super(props);       //calling method of a parent class
 
-            this.state = {};
+            this.state = { term : '' };
         }
         render() {
-            return <div>Hi from app2 !</div>
+            return (
+                <div>Hi from app2 !</div>
+                <input value={this.state.term} />       //this makes the input field read only
+                <input onChange={event => this.setState({term : event.target.value})} />        //set input value to user defined value
+            )
         }
     };
+
+    constructor function is called very first whenever any new instance of class is created
+
+    1. To set state
+        if we want to set state outside of a constructor function, we need to use
+        eg. this.setState({term: e.target.value});
+
+# Downwards data flow in react
+    Our parent component is solely responsible for fetching data, be it from API or anything
+
+# ES6 feature
+    YTsearch({key: API_KEY, term: 'bmw'}, (videos) => {
+        //when key and value have the same name, then we can condense them to one variable only
+        this.setState({videos}); <equivalent to> this.setState({videos : data});
+    });
+
+# set CSS in components
+    To set css using class in JSX, we use keyword className instead of class.
