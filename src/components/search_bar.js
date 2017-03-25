@@ -10,7 +10,7 @@ import React, {Component} from 'react';
 class SearchBar extends Component {
     constructor(props) {
         super(props);       //calling method of a parent class
-
+        this.props = props;
         this.state = {term: 'abc'};
     }
 
@@ -18,8 +18,7 @@ class SearchBar extends Component {
         return (
             <div>
                 <input
-                    value={this.state.term}
-                    onChange={this.onInputChange.bind(this)}/>
+                    onBlur={this.onInputChange.bind(this)}/>
             </div>
         );
     }
@@ -27,6 +26,8 @@ class SearchBar extends Component {
     onInputChange(e) {
         console.log('e.target.value: ', e.target.value)
         this.setState({term: e.target.value});
+        this.props.onSearchTermChange(e.target.value);
+        // this.setState({term: e.target.value});
     }
 }
 

@@ -20,8 +20,12 @@ class App extends Component {
         super(props);
 
         this.state = {videos: [], selectedVideo: null};
+        this.videoSearch('bmw');
+    }
 
-        YTsearch({key: API_KEY, term: 'bmw'}, (videos) => {
+    videoSearch(term) {
+        console.log('term : ', term)
+        YTsearch({key: API_KEY, term: term}, (videos) => {
             //when key and value have the same name, then we can condense them to one variable only
             this.setState({
                 videos: videos,
@@ -34,7 +38,7 @@ class App extends Component {
         //here videos is a props that can be accessed inside component
         return (
             <div>
-                <SearchBar />
+                <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
                 <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList onVideoSelect={selectedVideo => this.setState({selectedVideo})} videos={this.state.videos}/>
             </div>
