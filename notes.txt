@@ -52,6 +52,3 @@
 
 # set CSS in components
     To set css using class in JSX, we use keyword className instead of class.
-
-#REDUX
-    It is a predictable state container for JS applications
